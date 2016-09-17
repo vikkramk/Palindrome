@@ -34,14 +34,13 @@ int main() {
 	counter = 0;
 	while (counter < len/2 && string[counter] == string[len-1-counter]) { counter++; }
 
-        i
+        
 	//If reached middle, all characters the same on either side, inform user
 	if (counter == len/2)
 		cout << "Palindrome";
 
 	else
 		cout << "Not a Palindrome";
-	
 
 	//Quit successful
 	return 0;
