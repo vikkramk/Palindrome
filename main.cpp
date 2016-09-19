@@ -13,6 +13,8 @@ int main() {
 	char str[81], pstr[81];
 	int c, pc, len;
 
+START:
+	
 	//Prompt user and take input. Excess is discarded
 	cout << "Enter a string:";
 	cin >> str;
@@ -35,11 +37,12 @@ int main() {
         
 	//If reached middle, all characters the same on either side, inform user
 	if (c == len/2)
-		cout << "Palindrome";
+		cout << "Palindrome\n";
 
 	else
-		cout << "Not a Palindrome";
+		cout << "Not a Palindrome\n";
 
+	goto START;	
 	//Quit successful
 	return 0;
 }
