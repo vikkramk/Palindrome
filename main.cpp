@@ -10,33 +10,31 @@ using namespace std;
 //Main
 int main() {
 	//Declarations
-	char string[81];
-	int counter, len;
+	char str[81], pstr[81];
+	int c, pc, len;
 
 	//Prompt user and take input. Excess is discarded
 	cout << "Enter a string:";
-	cin >> string;
-	string[80] = '\0';
+	cin >> str;
+	str[80] = '\0';
 
 	//Discard punctuation
-	//Run through string. If not alphanumeric, copy rest over it
-	counter = 0;
-	while (counter < strlen(string)) { 
-		if (!isalpha(string[counter]) && !isdigit(string[counter])) {
-			strcpy(string+counter, string+counter+1);
-		}
-		else counter++;
-	}
+	//Run through string and only copy characters or numbers into other string
+	len = strlen(str);
+	for (c = pc = 0; c < len; c++)
+		if (isalpha(str[c]) || isdigit(str[c]))
+			pstr[pc++] = str[c];
 
-	len = strlen(string);
+	pstr[pc] = '\0';
+	len = strlen(pstr);
 
 	//Compare characters of each end of string and counting towards middle
-	counter = 0;
-	while (counter < len/2 && string[counter] == string[len-1-counter]) { counter++; }
+	c = 0;
+	while (c < len/2 && pstr[c] == pstr[len-1-c]) { c++; }
 
         
 	//If reached middle, all characters the same on either side, inform user
-	if (counter == len/2)
+	if (c == len/2)
 		cout << "Palindrome";
 
 	else
