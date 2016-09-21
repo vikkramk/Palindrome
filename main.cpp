@@ -12,22 +12,22 @@ int main() {
 	//Declarations
 	char str[81], pstr[81];
 	int c, pc, len;
-
-START:
 	
 	//Prompt user and take input. Excess is discarded
 	cout << "Enter a string:";
-	cin >> str;
-	str[80] = '\0';
+	cin.getline(str, sizeof(str));
 
 	//Discard punctuation
 	//Run through string and only copy characters or numbers into other string
 	len = strlen(str);
-	for (c = pc = 0; c < len; c++)
+	c = pc = 0;
+	while (str[c] != '\0') {
 		if (isalpha(str[c]) || isdigit(str[c]))
 			pstr[pc++] = str[c];
-
+		c++;
+	}
 	pstr[pc] = '\0';
+	
 	len = strlen(pstr);
 
 	//Compare characters of each end of string and counting towards middle
@@ -41,8 +41,7 @@ START:
 
 	else
 		cout << "Not a Palindrome\n";
-
-	goto START;	
+	
 	//Quit successful
 	return 0;
 }
